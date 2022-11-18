@@ -1,0 +1,8 @@
+.app{
+    text-align: center;
+}
+.pokemon_wrapper{
+    display: flex;
+    flex-wrap: wrap;
+
+}
