@@ -1,4 +1,7 @@
-
+.d-flex{
+    display: flex;
+margin-top: 200px;
+}
 
 .water {
     background-color: #92bde9;

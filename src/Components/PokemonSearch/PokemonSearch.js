@@ -5,6 +5,7 @@ import {useDispatch} from "react-redux";
 import {getPokemons, GET_POKEMONS, URL} from "../../Common/api";
 import {extractData} from "../../Common/extractData";
 import * as types from "../../Common/redux/actionType";
+import SearchIcon from '@mui/icons-material/Search';
 
 export default function PokemonSearch() {
     const [pokemonList, setPokemonList] = useState([]);
@@ -34,8 +35,9 @@ export default function PokemonSearch() {
     }, []);
 
 
-    // const style = `display-section ${pokemon.type}`
+
     return <Box
+        className={"search-container"}
         sx={{
             display: "flex",
             justifyContent: "space-between",
@@ -51,6 +53,7 @@ export default function PokemonSearch() {
         onSubmit={handleSubmit}
     >
         <Autocomplete
+            className={"search-input"}
             disablePortal
             id="combo-box-demo"
             underlineStyle={{display: "none"}}
@@ -61,8 +64,8 @@ export default function PokemonSearch() {
                 <TextField {...params} label="Search your Pokemon"/>
             )}
         />
-        <Button variant="contained" type="submit">
-            Search
+        <Button type="submit">
+            <SearchIcon/>
         </Button>
     </Box>
 }
