@@ -1,65 +1,68 @@
-import React, { useState} from "react";
-import Axios from "axios";
+import React, {useState, useEffect} from "react";
 import "./PokemonSearch.css";
+import {Autocomplete, Box, Button, TextField} from "@mui/material";
+import {useDispatch} from "react-redux";
+import {getPokemons, GET_POKEMONS, URL} from "../../Common/api";
+import {extractData} from "../../Common/extractData";
+import * as types from "../../Common/redux/actionType";
 
 export default function PokemonSearch() {
-    const [pokemonName, setPokemonName] = useState("")
-    const [pokemonSearch, setPokemonSearch] = useState(false)
-    const [pokemon, setPokemon] = useState({
-        name: "",
-        species: "",
-        img: "",
-        hp: "",
-        attack: "",
-        defence: "",
-        type: "",
-    })
+    const [pokemonList, setPokemonList] = useState([]);
+    const [inputValue, setValueInput] = useState("");
+    const dispatch = useDispatch();
 
-    const searchPokemon = () => {
-        Axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
-            .then((res) => {
-                setPokemon({
-                    name: pokemonName,
-                    species: res.data.species.name,
-                    img: res.data.sprites.front_default,
-                    hp: res.data.stats[0].base_stat,
-                    attack: res.data.stats[1].base_stat,
-                    defence: res.data.stats[2].base_stat,
-                    type: res.data.types[0].type.name,
-                });
-                setPokemonSearch(true)
-            })
+    function handleSubmit(event) {
+        event.preventDefault();
+        getPokemons(`${URL}/${inputValue}`).then(({data}) => {
+            dispatch({type: types.SET_POKEMON, payload: extractData(data)});
+        });
     }
 
-    const style = `display-section ${pokemon.type}`
-    return <div className={"search-container"}>
-        <div className={"title-section"}>
-            <h1>Pokemon Dex</h1>
-            <input type={"text"}
-                   placeholder={"Pokemon Name"}
-                   onChange={(event) => {
-                       setPokemonName(event.target.value)
-                   }}/>
-            <button onClick={searchPokemon}>Search Pokemon</button>
-        </div>
+    useEffect(() => {
+        getPokemons(GET_POKEMONS)
+            .then(({data}) => {
+                const listData = data.results.map((item) => ({
+                    ...item,
+                    label: item.name,
+                }));
 
-        <div className={style}>
-            <div className={"display-section"}>
-                {!pokemonSearch ? (
-                    <h2>Please Choose Pokemon</h2>
-                ) : (
-                    <>
-                        <h1>{pokemon.name}</h1>
-                        <img src={pokemon.img} alt={""}/>
-                        <h3>Species: {pokemon.species}</h3>
-                        <h3>Type: {pokemon.type}</h3>
-                        <h4>Hp: {pokemon.hp}</h4>
-                        <h4>Attack: {pokemon.attack}</h4>
-                        <h4>Defence: {pokemon.defence}</h4>
-                    </>
+                setPokemonList(listData);
+            })
+            .catch((Error) => {
+                console.error(Error);
+            });
+    }, []);
 
-                )}
-            </div>
-        </div>
-    </div>
+
+    // const style = `display-section ${pokemon.type}`
+    return <Box
+        sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            flexDirection: "row",
+            alignItems: "center",
+            width: "30%",
+            p: 1,
+            mr: 1,
+            borderRadius: 1,
+
+        }}
+        component="form"
+        onSubmit={handleSubmit}
+    >
+        <Autocomplete
+            disablePortal
+            id="combo-box-demo"
+            underlineStyle={{display: "none"}}
+            options={pokemonList}
+            sx={{width: 300, color: "white"}}
+            onChange={(e, newEvent) => setValueInput(newEvent.name)}
+            renderInput={(params) => (
+                <TextField {...params} label="Search your Pokemon"/>
+            )}
+        />
+        <Button variant="contained" type="submit">
+            Search
+        </Button>
+    </Box>
 }

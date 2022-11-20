@@ -5,27 +5,4 @@
 
 }
 
-.nav-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 
-}
-
-.me-auto a {
-
-    text-decoration: none !important;
-    color: #FFDE00 !important;
-    font-size: 18px;
-    font-weight: 600;
-}
-
-.me-auto a:hover {
-    color: #B3A125 !important;
-}
-
-.search {
-    border: 1px solid #FFDE00;
-    padding: 5px 10px;
-    border-radius: 10px;
-}

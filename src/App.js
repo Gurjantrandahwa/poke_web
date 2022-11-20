@@ -1,24 +1,17 @@
 import './App.css';
 import PokemonSearch from "./Components/PokemonSearch/PokemonSearch";
-import Allpokemons from "./Components/AllPokemons/Allpokemons";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Header from "./Components/Header/Header";
-import {Container} from "react-bootstrap";
+import PokemonDetails from "./Components/PokemonDetails/PokemonDetails";
+import AbilityCard from "./Components/PokemonDetails/AbilityCard";
 
 
 function App() {
-    return <BrowserRouter>
-        <Container fluid>
-            <Header/>
-            <Routes>
-                <Route path={"/search"} element={<PokemonSearch/>}/>
-                <Route path={"/"} element={<Allpokemons/>}/>
-
-            </Routes>
-        </Container>
-
-
-    </BrowserRouter>
+    return <div>
+        <Header/>
+        <PokemonSearch/>
+        <PokemonDetails/>
+        <AbilityCard/>
+    </div>
 }
 
 export default App;
