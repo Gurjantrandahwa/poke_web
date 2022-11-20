@@ -1,8 +1,73 @@
-.app{
-    text-align: center;
-}
-.pokemon_wrapper{
-    display: flex;
-    flex-wrap: wrap;
+
+
+.water {
+    background-color: #92bde9;
 
 }
+
+.electric {
+    background-color: #e7c05d;
+
+}
+
+.grass {
+    background-color: #65d965;
+}
+
+.fire {
+    background-color: #e05151;
+
+}
+
+.normal {
+    background-color: #d29172;
+}
+
+.fairy {
+    background-color: pink;
+}
+
+.poison {
+    background-color: #713ed9;
+}
+
+.bug {
+    background-color: #7d8b00;
+}
+
+.rock {
+    background-color: darkmagenta;
+}
+
+.dark {
+    background-color: gray;
+}
+
+.psychic {
+    background-color: #7d8b00;
+}
+
+.steel {
+    background-color: darkcyan;
+}
+
+.fighting {
+    background-color: darkkhaki;
+}
+
+.ground {
+    background-color: #5b0b24;
+}
+
+.dragon {
+    background-color: darkgoldenrod;
+}
+
+.ice {
+    background-color: lightcoral;
+}
+
+.ghost {
+    background-color: #3c175f;
+}
+
