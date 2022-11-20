@@ -34,7 +34,7 @@ export default function Header() {
         <div className="app-container">
             <h1>Pokemon Dex .</h1>
             <Link to={"/search"}>
-                <h2>Search any Pokemon here...</h2>
+                <h2>Search any Pokemon here ...</h2>
             </Link>
 
             <div className="pokemon-container">

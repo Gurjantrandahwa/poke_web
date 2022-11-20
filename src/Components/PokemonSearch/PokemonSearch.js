@@ -8,6 +8,7 @@ import * as types from "../../Common/redux/actionType";
 import SearchIcon from '@mui/icons-material/Search';
 import PokemonDetails from "../PokemonDetails/PokemonDetails";
 import AbilityCard from "../PokemonDetails/AbilityCard";
+import {Link} from "react-router-dom";
 
 export default function PokemonSearch() {
     const [pokemonList, setPokemonList] = useState([]);
@@ -38,6 +39,10 @@ export default function PokemonSearch() {
 
 
     return <div className={"search-container"}>
+        <Link to={"/"}>
+            <h1>All Pokemons</h1>
+        </Link>
+
         <Box
 
             sx={{
