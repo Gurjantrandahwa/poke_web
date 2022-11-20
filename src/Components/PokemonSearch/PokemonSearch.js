@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, { useState} from "react";
 import Axios from "axios";
 import "./PokemonSearch.css";
 
-export default function PokemonSearch(){
+export default function PokemonSearch() {
     const [pokemonName, setPokemonName] = useState("")
-    const [pokemonChoose, setPokemonChoose] = useState(false)
+    const [pokemonSearch, setPokemonSearch] = useState(false)
     const [pokemon, setPokemon] = useState({
         name: "",
         species: "",
@@ -27,17 +27,16 @@ export default function PokemonSearch(){
                     defence: res.data.stats[2].base_stat,
                     type: res.data.types[0].type.name,
                 });
-                setPokemonChoose(true)
+                setPokemonSearch(true)
             })
     }
-    useEffect(() => {
 
-    }, [])
     const style = `display-section ${pokemon.type}`
-    return <div className={"container"}>
+    return <div className={"search-container"}>
         <div className={"title-section"}>
-            <h1>Pokemon Stats</h1>
+            <h1>Pokemon Dex</h1>
             <input type={"text"}
+                   placeholder={"Pokemon Name"}
                    onChange={(event) => {
                        setPokemonName(event.target.value)
                    }}/>
@@ -46,7 +45,7 @@ export default function PokemonSearch(){
 
         <div className={style}>
             <div className={"display-section"}>
-                {!pokemonChoose ? (
+                {!pokemonSearch ? (
                     <h2>Please Choose Pokemon</h2>
                 ) : (
                     <>

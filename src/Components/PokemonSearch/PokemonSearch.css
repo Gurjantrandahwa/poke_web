@@ -1,8 +1,10 @@
-.container {
+.search-container {
     display: flex;
     justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
     flex-direction: column;
+    color: white;
+    height: 88vh;
 }
 
 .title-section h1 {
@@ -11,46 +13,42 @@
 }
 
 .title-section {
-    background-color: dodgerblue;
+    background-color: #23AFCC;
     width: 100%;
-    height: 250px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: white;
+    height: 44vh;
 }
 
 .title-section input {
     height: 40px;
-    width: 200px;
+    width: 300px;
     outline: none;
     border-radius: 10px;
     border: none;
-    padding: 0 3px;
-    font-size: 17px;
+    padding: 0 5px;
+    font-size: 16px;
 }
 
 .title-section button {
     padding: 10px 20px;
     margin: 20px;
-    font-weight: bold;
     border: none;
-    color: goldenrod;
-    background-color: #000000;
+    color: #FFDE00;
+    background-color: black;
     border-radius: 10px;
     cursor: pointer;
-}
-
-.title-section button:hover {
-    background-color: #a5cbf0;
-    color: black;
+    font-size: 16px;
 }
 
 .display-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 300px;
+    width: 100%;
+    height: 45vh;
     margin: auto;
     justify-content: center;
 
