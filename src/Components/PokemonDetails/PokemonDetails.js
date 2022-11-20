@@ -3,8 +3,10 @@ import {Card, CardContent, CardMedia, Chip, Stack, Typography} from "@mui/materi
 import { useSelector } from "react-redux";
 export default function PokemonDetails() {
     const pokemon = useSelector((state) => state.pokemon);
+
      const style = `display-section ${pokemon.type}`
     return<div className={style}>
+
         <Card sx={{ minWidth: 364 }}>
             <CardMedia
                 component="img"

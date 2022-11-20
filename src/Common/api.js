@@ -10,6 +10,7 @@ export const getPokemons = (apiURL) => {
             url: apiURL,
         })
             .then((response) => resolve(response))
+
             .catch((error) => reject(error));
     });
 };
