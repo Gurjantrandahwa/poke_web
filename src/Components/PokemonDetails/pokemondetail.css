@@ -1,0 +1,21 @@
+.detail-card {
+    background-color: black !important;
+    width: 360px;
+    height: 319px;
+}
+
+.detail-card img {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    width: 150px;
+}
+
+.ability-cards {
+    width: 350px;
+
+}
+
+.css-ssm9q9-MuiTypography-root {
+    font-size: 16px !important;
+}

@@ -6,6 +6,8 @@ import {getPokemons, GET_POKEMONS, URL} from "../../Common/api";
 import {extractData} from "../../Common/extractData";
 import * as types from "../../Common/redux/actionType";
 import SearchIcon from '@mui/icons-material/Search';
+import PokemonDetails from "../PokemonDetails/PokemonDetails";
+import AbilityCard from "../PokemonDetails/AbilityCard";
 
 export default function PokemonSearch() {
     const [pokemonList, setPokemonList] = useState([]);
@@ -35,37 +37,37 @@ export default function PokemonSearch() {
     }, []);
 
 
+    return <div className={"search-container"}>
+        <Box
 
-    return <Box
-        className={"search-container"}
-        sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            flexDirection: "row",
-            alignItems: "center",
-            width: "30%",
-            p: 1,
-            mr: 1,
-            borderRadius: 1,
-
-        }}
-        component="form"
-        onSubmit={handleSubmit}
-    >
-        <Autocomplete
-            className={"search-input"}
-            disablePortal
-            id="combo-box-demo"
-            underlineStyle={{display: "none"}}
-            options={pokemonList}
-            sx={{width: 300, color: "white"}}
-            onChange={(e, newEvent) => setValueInput(newEvent.name)}
-            renderInput={(params) => (
-                <TextField {...params} label="Search your Pokemon"/>
-            )}
-        />
-        <Button type="submit">
-            <SearchIcon/>
-        </Button>
-    </Box>
+            sx={{
+                display: "flex",
+                flexDirection: "row",
+                width: "30%",
+                p: 3,
+                borderRadius: 1,
+                alignItems: "center"
+            }}
+            component="form"
+            onSubmit={handleSubmit}
+        >
+            <Autocomplete
+                disablePortal
+                underlineStyle={{display: "none"}}
+                options={pokemonList}
+                sx={{width: 300, color: "black"}}
+                onChange={(e, newEvent) => setValueInput(newEvent.name)}
+                renderInput={(params) => (
+                    <TextField {...params} label="Search your Pokemon"/>
+                )}
+            />
+            <Button type="submit" className={"search-btn"}>
+                <SearchIcon/>
+            </Button>
+        </Box>
+        <div className={"d-flex"}>
+            <PokemonDetails/>
+            <AbilityCard/>
+        </div>
+    </div>
 }

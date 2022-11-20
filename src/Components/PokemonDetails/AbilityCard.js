@@ -1,5 +1,6 @@
 import React from "react";
 import {useSelector} from "react-redux";
+import "./pokemondetail.css"
 import {
     Box,
     Card,
@@ -31,12 +32,12 @@ export default function AbilityCard() {
         }
         return false;
     };
-    return <div>
-        <Card sx={{minWidth: 275}}>
+    return <div className={"ability-cards"}>
+        <Card >
             <CardContent>
                 <List
                     dense
-                    sx={{width: "100%", maxWidth: 360}}
+
                 >
                     {Abilities.map((value) => {
                         return (

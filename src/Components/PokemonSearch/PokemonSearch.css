@@ -1,6 +1,26 @@
 .search-container {
-    position: absolute;
-    right: 0;
-    top: 20px;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+
 }
 
+.search-btn {
+
+    background-color: transparent !important;
+
+    border: 1px solid #322e2e !important;
+    color: #4f4b4b !important;
+
+    padding: 14px !important;
+
+}
+@media only screen and (max-width: 1060px) {
+    .search-container  {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+       margin: auto;
+        align-items: center;
+    }
+}
