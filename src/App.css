@@ -1,9 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 .d-flex {
     display: flex;
     margin-top: 50px;
 }
+* {
+    padding: 0;
+    margin: 0;
 
-@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+}
+
+
+
 body {
     margin: 0;
     font-family: "Satisfy", cursive!important;

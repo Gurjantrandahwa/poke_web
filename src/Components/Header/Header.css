@@ -14,7 +14,7 @@
     color: rgb(16, 166, 236);
     overflow: hidden;
     white-space: nowrap;
-    animation: text 4s steps(15) infinite alternate;
+    animation: text 7s steps(15) infinite alternate;
 }
 
 @keyframes text {
